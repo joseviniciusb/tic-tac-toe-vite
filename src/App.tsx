@@ -10,7 +10,7 @@ interface Board {
 
 function Square({ value, onSquareClick }: Board) {
   return (
-    <button className="bg-gray-200 w-24 h-24" onClick={onSquareClick}>
+    <button className="bg-gray-200 w-24 h-24 border-2 border-solid border-black content-center" onClick={onSquareClick}>
       {!value && <span className='opacity-0'>X</span>}
       {value && value}
     </button>
@@ -43,7 +43,7 @@ function Board({ xIsNext, squares, onPlay }: Board) {
     <>
       <div className='text-3xl font-bold underline' >{status}</div>
 
-      <div className="gap-4">
+      <div className="text-2xl grid content-center">
       <div >
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
