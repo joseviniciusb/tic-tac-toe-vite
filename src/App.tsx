@@ -10,14 +10,15 @@ interface Board {
 
 function Square({ value, onSquareClick }: Board) {
   return (
-    <button className="" onClick={onSquareClick}>
-      {value}
+    <button className="bg-gray-200 w-24 h-24" onClick={onSquareClick}>
+      {!value && <span className='opacity-0'>X</span>}
+      {value && value}
     </button>
   );
 }
 
 function Board({ xIsNext, squares, onPlay }: Board) {
-  function handleClick(i: string) {
+  function handleClick(i: number) {
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
@@ -40,22 +41,29 @@ function Board({ xIsNext, squares, onPlay }: Board) {
 
   return (
     <>
-      <div >{status}</div>
+      <div className='text-3xl font-bold underline' >{status}</div>
+
+      <div className="gap-4">
       <div >
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
         <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
       </div>
+
       <div >
         <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
         <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
         <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
       </div>
+
       <div >
         <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
         <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
         <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
+    
+      </div>
+
     </>
   );
 }
