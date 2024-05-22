@@ -91,14 +91,20 @@ export default function Game() {
   });
 
   return (
-    <div className="">
+    <>
+      <h1 className="text-3xl font-bold underline">
+        Tailwind Tests!
+      </h1>
       <div className="">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        <div className="">
+          <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        </div>
+        <div className="">
+          <ol>{moves}</ol>
+        </div>
       </div>
-      <div className="">
-        <ol>{moves}</ol>
-      </div>
-    </div>
+    </>
+
   );
 }
 
